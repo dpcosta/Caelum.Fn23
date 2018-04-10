@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#"%>
+<%@ Import Namespace="Caelum.Fn23.WebAppZerada.Negocio" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +11,18 @@
     <p>Artigos disponíveis</p>
     <ul>
         <%
-        var lista = new List<string>
+        var lista = new List<Post>
         {
-            "Highway to Hell",
-            "If You Want Blood",
-            "TNT",
-            "Thunderstruck",
+            new Post{ Id=1, Titulo="Highway to Hell", Categoria="Músicas"},
+            new Post{ Id=2, Titulo="Cassino Royale", Categoria="Filmes"},
+            new Post{ Id=3, Titulo="Inferno", Categoria="Livros"},
+            new Post{ Id=4, Titulo="Fear of the Dark", Categoria="Músicas"},
+            new Post{ Id=5, Titulo="Ciranda, Cirandinha", Categoria="Músicas"},
         };
         var artigos = "";
         foreach(var post in lista)
         {
-            artigos += $"<li>{post}</li>";
+            artigos += $"<li>{post.Titulo} - {post.Categoria}</li>";
         }
         %>
         <%=artigos%>
