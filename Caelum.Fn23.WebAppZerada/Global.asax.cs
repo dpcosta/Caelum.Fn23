@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using Caelum.Fn23.WebAppZerada.Negocio;
+using Caelum.Fn23.WebAppZerada.RouteHandlers;
 
 namespace Caelum.Fn23.WebAppZerada
 {
@@ -14,7 +16,31 @@ namespace Caelum.Fn23.WebAppZerada
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            //uso de rotas
+            var rotas = RouteTable.Routes;
+            rotas.Add(new Route("posts", new PostsRouteHandler()));
+            rotas.Add(new Route("posts/filmes", new PostsRouteHandler()));
+            rotas.Add(new Route("contato", new InfoBlogRouteHandler()));
 
+            //problema é que pra cada nova rota terei que criar 2 novas classes!!!
+            //mas posso pensar em criar apenas uma rota que vai repassar as requisições
+            //para classes específicas. Para isso será necessário que todas as rotas sigam
+            //um padrão. Mas repare que já fiz isso: posts/musicas, posts, posts/novo
+            //se fôssemos padronizar seria assim:
+            //{nome do tipo do objeto}/{nome do metodo a ser invocado}
+
+            //É isso que o MVC faz! Todas as rotas passam por esse padrão
+            //a diferença é que o nome do tipo de objeto é controller e do método é action
+            //então:
+            //{controller}/{action}
+
+            //e pros casos assim?
+            //http://localhost:819893/
+            //http://localhost:819893/posts
+            //etc?
+
+            //nessas situações seria legal se o parâmetro pudesse ter um valor default
+            //no MVC esses valores padrão são controller=Home, action=Index
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -24,29 +50,7 @@ namespace Caelum.Fn23.WebAppZerada
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Request.Path == "/")
-            {
-                var lista = new List<Post>
-                {
-                    new Post{ Id=1, Titulo="Highway to Hell", Categoria="Músicas"},
-                    new Post{ Id=2, Titulo="Cassino Royale", Categoria="Filmes"},
-                    new Post{ Id=3, Titulo="Inferno", Categoria="Livros"},
-                    new Post{ Id=4, Titulo="Fear of the Dark", Categoria="Músicas"},
-                    new Post{ Id=5, Titulo="Ciranda, Cirandinha", Categoria="Músicas"},
-                };
-                var artigos = "";
-                foreach (var post in lista)
-                {
-                    artigos += $"<li>{post.Titulo} - {post.Categoria}</li>";
-                }
-                //mas como disponibilizar essa lista no navegador?
-                HttpContext.Current.Response.Write("<html>");
-                HttpContext.Current.Response.Write("<ul>");
-                HttpContext.Current.Response.Write(artigos);
-                HttpContext.Current.Response.Write("</ul>");
-                HttpContext.Current.Response.Write("</html>");
-                HttpContext.Current.Response.End();
-            }
+            
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
