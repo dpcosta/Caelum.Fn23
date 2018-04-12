@@ -45,11 +45,10 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
     {
         public IHttpHandler GetHttpHandler(RequestContext requestContext)
         {
-            var segmentos = requestContext.HttpContext.Request.Path.Split('/');
             var categoria = string.Empty;
-            if (segmentos.Length == 3)
+            if (requestContext.RouteData.Values.ContainsKey("categoria"))
             {
-                categoria = segmentos[2];
+                categoria = requestContext.RouteData.Values["categoria"].ToString();
             }
             return new PostsHandler() { Categoria = categoria };
         }
