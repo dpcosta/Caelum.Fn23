@@ -21,7 +21,8 @@ namespace Caelum.Fn23.WebAppZerada
             rotas.MapMvcAttributeRoutes();
             rotas.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}"
+                url: "{controller}/{action}",
+                defaults: new { controller = "Home", action = "Index" }
             );
         }
 
