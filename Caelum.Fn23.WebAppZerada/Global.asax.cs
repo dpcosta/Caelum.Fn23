@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
@@ -15,11 +16,12 @@ namespace Caelum.Fn23.WebAppZerada
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            //uso de rotas
+            
             var rotas = RouteTable.Routes;
-            rotas.Add(new Route("posts", new PostsRouteHandler()));
-            rotas.Add(new Route("posts/{categoria}", new PostsRouteHandler()));
-            rotas.Add(new Route("blog/sobre", new InfoBlogRouteHandler()));
+            rotas.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}"
+            );
         }
 
         

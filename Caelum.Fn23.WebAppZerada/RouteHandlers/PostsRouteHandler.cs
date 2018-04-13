@@ -3,17 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Caelum.Fn23.WebAppZerada.RouteHandlers
 {
-    public class PostsHandler : IHttpHandler
+    public class PostsController : Controller
     {
-        public string Categoria { get; set; }
-        public bool IsReusable => true;
-
-        public void ProcessRequest(HttpContext context)
+        public string ProcessRequest(string categoria)
         {
+            var context = this.HttpContext;
             var lista = new List<Post>
                 {
                     new Post{ Id=1, Titulo="007 - O Espião que me avama", Categoria="Filmes"},
@@ -22,10 +21,10 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
                     new Post{ Id=4, Titulo="Fear of the Dark", Categoria="Músicas"},
                     new Post{ Id=5, Titulo="Ciranda, Cirandinha", Categoria="Músicas"},
                 };
-            if (!string.IsNullOrEmpty(this.Categoria))
+            if (!string.IsNullOrEmpty(categoria))
             {
                 //filtra por categoria
-                lista = lista.Where(p => p.Categoria.ToUpper() == Categoria.ToUpper()).ToList();
+                lista = lista.Where(p => p.Categoria.ToUpper() == categoria.ToUpper()).ToList();
             }
             
             //mas como disponibilizar essa lista no navegador?
@@ -38,19 +37,20 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
             context.Response.Write("</ul>");
             context.Response.Write("</html>");
             context.Response.End();
+            return context.Response.ToString();
         }
     }
 
-    public class PostsRouteHandler : IRouteHandler
-    {
-        public IHttpHandler GetHttpHandler(RequestContext requestContext)
-        {
-            var categoria = string.Empty;
-            if (requestContext.RouteData.Values.ContainsKey("categoria"))
-            {
-                categoria = requestContext.RouteData.Values["categoria"].ToString();
-            }
-            return new PostsHandler() { Categoria = categoria };
-        }
-    }
+    //public class PostsRouteHandler : IRouteHandler
+    //{
+    //    public IHttpHandler GetHttpHandler(RequestContext requestContext)
+    //    {
+    //        var categoria = string.Empty;
+    //        if (requestContext.RouteData.Values.ContainsKey("categoria"))
+    //        {
+    //            categoria = requestContext.RouteData.Values["categoria"].ToString();
+    //        }
+    //        return new PostsController() { Categoria = categoria };
+    //    }
+    //}
 }
