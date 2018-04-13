@@ -14,7 +14,7 @@
     <ul>
         @foreach (Caelum.Fn23.WebAppZerada.Negocio.Post post in ViewBag.Posts)
         {
-            <li>{post.Titulo} - {post.Categoria}</li>
+            <li>@post.Titulo - @post.Categoria</li>
         }
     </ul>
 </body>
