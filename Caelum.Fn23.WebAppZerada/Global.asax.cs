@@ -18,6 +18,7 @@ namespace Caelum.Fn23.WebAppZerada
         {
             
             var rotas = RouteTable.Routes;
+            rotas.MapMvcAttributeRoutes();
             rotas.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}"

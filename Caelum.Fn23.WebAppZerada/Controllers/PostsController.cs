@@ -10,6 +10,7 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
 {
     public class PostsController : Controller
     {
+        [Route("posts/{categoria?}")]
         public void Lista(string categoria)
         {
             var lista = new List<Post>
