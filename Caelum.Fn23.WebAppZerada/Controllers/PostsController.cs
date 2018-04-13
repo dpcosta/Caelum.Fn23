@@ -10,9 +10,8 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
 {
     public class PostsController : Controller
     {
-        public string ProcessRequest(string categoria)
+        public void Lista(string categoria)
         {
-            var context = this.HttpContext;
             var lista = new List<Post>
                 {
                     new Post{ Id=1, Titulo="007 - O Espião que me avama", Categoria="Filmes"},
@@ -26,8 +25,9 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
                 //filtra por categoria
                 lista = lista.Where(p => p.Categoria.ToUpper() == categoria.ToUpper()).ToList();
             }
-            
+
             //mas como disponibilizar essa lista no navegador?
+            var context = this.HttpContext;
             context.Response.Write("<html>");
             context.Response.Write("<ul>");
             foreach (var post in lista)
@@ -37,20 +37,6 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
             context.Response.Write("</ul>");
             context.Response.Write("</html>");
             context.Response.End();
-            return context.Response.ToString();
         }
     }
-
-    //public class PostsRouteHandler : IRouteHandler
-    //{
-    //    public IHttpHandler GetHttpHandler(RequestContext requestContext)
-    //    {
-    //        var categoria = string.Empty;
-    //        if (requestContext.RouteData.Values.ContainsKey("categoria"))
-    //        {
-    //            categoria = requestContext.RouteData.Values["categoria"].ToString();
-    //        }
-    //        return new PostsController() { Categoria = categoria };
-    //    }
-    //}
 }
