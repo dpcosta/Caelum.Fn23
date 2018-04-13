@@ -98,6 +98,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\sobre.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
