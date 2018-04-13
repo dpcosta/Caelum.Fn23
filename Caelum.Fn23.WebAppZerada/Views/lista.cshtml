@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Resenha Cultural - Blog</title>
+</head>
+<body>
+    <h1>Lista de posts</h1>
+    <ul>
+        @foreach (Caelum.Fn23.WebAppZerada.Negocio.Post post in ViewBag.Posts)
+        {
+            <li>{post.Titulo} - {post.Categoria}</li>
+        }
+    </ul>
+</body>
+</html>

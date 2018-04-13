@@ -1,6 +1,7 @@
 ﻿using Caelum.Fn23.WebAppZerada.Negocio;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,11 +12,11 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
     public class PostsController : Controller
     {
         [Route("posts/{categoria?}")]
-        public void Lista(string categoria)
+        public string Lista(string categoria)
         {
             var lista = new List<Post>
                 {
-                    new Post{ Id=1, Titulo="007 - O Espião que me avama", Categoria="Filmes"},
+                    new Post{ Id=1, Titulo="007 - O Espião que me amava", Categoria="Filmes"},
                     new Post{ Id=2, Titulo="Cassino Royale", Categoria="Filmes"},
                     new Post{ Id=3, Titulo="Inferno", Categoria="Livros"},
                     new Post{ Id=4, Titulo="Fear of the Dark", Categoria="Músicas"},
@@ -27,17 +28,13 @@ namespace Caelum.Fn23.WebAppZerada.RouteHandlers
                 lista = lista.Where(p => p.Categoria.ToUpper() == categoria.ToUpper()).ToList();
             }
 
-            //mas como disponibilizar essa lista no navegador?
-            var context = this.HttpContext;
-            context.Response.Write("<html>");
-            context.Response.Write("<ul>");
-            foreach (var post in lista)
+            ViewBag.Posts = lista;
+            var caminhoArquivo = Server.MapPath("~/Views/lista.cshtml");
+            using (var file = System.IO.File.OpenRead(caminhoArquivo))
+            using (var leitor = new StreamReader(file))
             {
-                context.Response.Write($"<li>{post.Titulo} - {post.Categoria}</li>");
+                return leitor.ReadToEnd();
             }
-            context.Response.Write("</ul>");
-            context.Response.Write("</html>");
-            context.Response.End();
         }
     }
 }
