@@ -1,8 +1,4 @@
-﻿@model Caelum.Fn23.Curso.Models.Post
-
-@{
-    Layout = null;
-}
+﻿@model Post
 
 <!DOCTYPE html>
 
@@ -18,15 +14,24 @@
         <input type="hidden" name="datapublicacao" value="@Model.DataPublicacao" />
 
         <label for="titulo">Título:</label>
-        <input id="titulo" name="titulo" value="@Model.Titulo" />
+        <input id="titulo" name="titulo" 
+               required
+               maxlength="50"
+               value="@Model.Titulo" />
+        @Html.ValidationMessage("titulo")
         <br />
 
         <label for="resumo">Resumo:</label>
-        <input id="resumo" name="resumo" value="@Model.Resumo" />
+        <input id="resumo" name="resumo" 
+               required
+               maxlength="255"
+               value="@Model.Resumo" />
+        @Html.ValidationMessage("resumo")
         <br />
 
         <label for="categoria">Categoria:</label>
         <input id="categoria" name="categoria" value="@Model.Categoria" />
+        @Html.ValidationMessage("categoria")
         <br />
 
         <label>
@@ -37,5 +42,10 @@
 
         <button type="submit">Gravar</button>
     </form>
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        $("form").validate();
+    </script>
 </body>
 </html>

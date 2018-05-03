@@ -22,7 +22,7 @@ namespace Caelum.Fn23.Curso.Controllers
 
         public ActionResult Novo()
         {
-            return View();
+            return View(new Post());
         }
 
         public ActionResult Detalhe(int id)
@@ -50,13 +50,24 @@ namespace Caelum.Fn23.Curso.Controllers
         [HttpPost]
         public ActionResult Adiciona(Post post)
         {
-            _dao.Incluir(post);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _dao.Incluir(post);
+                return RedirectToAction("Index");
+            }
+            //Bad Request
+            HttpContext.Response.StatusCode = 400;
+            return View("Novo", post);
         }
 
         [HttpPost]
         public ActionResult Altera(Post post)
         {
+            if (!ModelState.IsValid)
+            {
+                HttpContext.Response.StatusCode = 400;
+                return View("Detalhe", post);
+            }
             if (post.Publicado && (post.DataPublicacao == null))
             {
                 post.DataPublicacao = DateTime.Now;

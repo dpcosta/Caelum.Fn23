@@ -96,6 +96,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +127,10 @@
     <Compile Include="Migrations\201805031859179_InfoPublicacao.Designer.cs">
       <DependentUpon>201805031859179_InfoPublicacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805032105432_Validacoes.cs" />
+    <Compile Include="Migrations\201805032105432_Validacoes.Designer.cs">
+      <DependentUpon>201805032105432_Validacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,6 +143,8 @@
     <Content Include="Views\Shared\erro.cshtml" />
     <Content Include="Views\Post\Novo.cshtml" />
     <Content Include="Views\Post\Detalhe.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -147,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805031859179_InfoPublicacao.resx">
       <DependentUpon>201805031859179_InfoPublicacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805032105432_Validacoes.resx">
+      <DependentUpon>201805032105432_Validacoes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
