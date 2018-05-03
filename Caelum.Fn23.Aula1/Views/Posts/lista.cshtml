@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <ul>
+        @foreach (var post in ViewBag.Posts)
+        {
+            <li>@post.Titulo - @post.Categoria</li>
+        }
+    </ul>
+</body>
+</html>

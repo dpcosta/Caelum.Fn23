@@ -5,6 +5,14 @@ VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caelum.Fn23.WebAppZerada", "Caelum.Fn23.WebAppZerada\Caelum.Fn23.WebAppZerada.csproj", "{C31BACC3-4743-47BC-89D5-85E637DEE44A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caelum.Fn23.ProjetoWebComMVC", "Caelum.Fn23.ProjetoWebComMVC\Caelum.Fn23.ProjetoWebComMVC.csproj", "{AFDF89FE-A116-4B6E-9FFD-D0711DA147F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caelum.Fn23.Aula1", "Caelum.Fn23.Aula1\Caelum.Fn23.Aula1.csproj", "{3A841F3D-120C-4B2D-B687-6AB599E4E437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caelum.Fn23.Curso", "Caelum.Fn23.Curso\Caelum.Fn23.Curso.csproj", "{56EA933A-4676-484F-9A05-22B266A677CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caelum.Fn23.Revisao.Aula1", "Caelum.Fn23.Revisao.Aula1\Caelum.Fn23.Revisao.Aula1.csproj", "{D62DCC65-DB30-4E2F-9C9E-C08EEAD4A439}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{C31BACC3-4743-47BC-89D5-85E637DEE44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C31BACC3-4743-47BC-89D5-85E637DEE44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C31BACC3-4743-47BC-89D5-85E637DEE44A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFDF89FE-A116-4B6E-9FFD-D0711DA147F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDF89FE-A116-4B6E-9FFD-D0711DA147F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDF89FE-A116-4B6E-9FFD-D0711DA147F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDF89FE-A116-4B6E-9FFD-D0711DA147F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A841F3D-120C-4B2D-B687-6AB599E4E437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A841F3D-120C-4B2D-B687-6AB599E4E437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A841F3D-120C-4B2D-B687-6AB599E4E437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A841F3D-120C-4B2D-B687-6AB599E4E437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56EA933A-4676-484F-9A05-22B266A677CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56EA933A-4676-484F-9A05-22B266A677CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56EA933A-4676-484F-9A05-22B266A677CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56EA933A-4676-484F-9A05-22B266A677CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62DCC65-DB30-4E2F-9C9E-C08EEAD4A439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62DCC65-DB30-4E2F-9C9E-C08EEAD4A439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62DCC65-DB30-4E2F-9C9E-C08EEAD4A439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62DCC65-DB30-4E2F-9C9E-C08EEAD4A439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

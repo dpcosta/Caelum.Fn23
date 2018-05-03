@@ -1,0 +1,31 @@
+﻿@model Caelum.Fn23.Curso.Models.Post
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Novo Post - Resenha Cultural</title>
+</head>
+<body>
+    <form action="/Post/Adiciona" method="post">
+        <label for="titulo">Título:</label>
+        <input id="titulo" name="titulo" placeholder="Título do post..."  />
+        <br />
+
+        <label for="resumo">Resumo:</label>
+        <input id="resumo" name="resumo" placeholder="Resumo do post..." />
+        <br />
+
+        <label for="categoria">Categoria:</label>
+        <input id="categoria" name="categoria" placeholder="Categoria do post..." />
+        <br />
+
+        <button type="submit">Gravar</button>
+    </form>
+</body>
+</html>

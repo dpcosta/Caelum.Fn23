@@ -1,0 +1,41 @@
+﻿@model Caelum.Fn23.Curso.Models.Post
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalhe do post</title>
+</head>
+<body>
+    <form action="/Post/Altera" method="post">
+
+        <input type="hidden" name="id" value="@Model.Id" />
+        <input type="hidden" name="datapublicacao" value="@Model.DataPublicacao" />
+
+        <label for="titulo">Título:</label>
+        <input id="titulo" name="titulo" value="@Model.Titulo" />
+        <br />
+
+        <label for="resumo">Resumo:</label>
+        <input id="resumo" name="resumo" value="@Model.Resumo" />
+        <br />
+
+        <label for="categoria">Categoria:</label>
+        <input id="categoria" name="categoria" value="@Model.Categoria" />
+        <br />
+
+        <label>
+            <input type="checkbox" name="publicado" value="true" checked="@Model.Publicado" />
+            Publicado
+        </label>
+        <br />
+
+        <button type="submit">Gravar</button>
+    </form>
+</body>
+</html>

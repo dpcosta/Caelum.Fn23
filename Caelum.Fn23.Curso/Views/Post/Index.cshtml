@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Post>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Lista de posts</h2>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Resumo</th>
+            <th>Categoria</th>
+            <th>Publicado?</th>
+            <th>Ações</th>
+        </tr>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Titulo</td>
+                <td>@post.Resumo</td>
+                <td>@post.Categoria</td>
+                <td>
+                    @if (post.Publicado)
+                    {
+                    <span>@string.Format("{0:dd/MM/yyyy}", post.DataPublicacao)</span>
+                    }
+                    else
+                    {
+                    <span>Não</span>
+                    }
+                </td>
+                <td>
+                    <form action="/Post/Publica" method="post">
+                        <input type="hidden" name="id" value="@post.Id" />
+                        <button>Publicar</button>
+                    </form>
+                    <form action="/Post/Detalhe" method="get">
+                        <input type="hidden" name="id" value="@post.Id" />
+                        <button type="submit">Alterar</button>
+                    </form>
+                    <form action="/Post/Remove" method="post">
+                        <input type="hidden" name="id" value="@post.Id" />
+                        <button type="submit">Remover</button>
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>
+        <form action="/Post/Novo" method="get">
+            <button>Novo post</button>
+        </form>
+    </p>
+</body>
+</html>
